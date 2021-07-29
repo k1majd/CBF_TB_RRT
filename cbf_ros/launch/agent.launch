@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- spawn agent -->
+	<node pkg="gazebo_ros" type="spawn_model" name="spawn" args="-file $(find cbf_ros)/model_editor_models/agent/model.sdf -sdf -model agent -x 6.0 -y 0.0 -z 0.0" >
+	</node>
+
+	<!-- agent order -->
+	<node pkg="cbf_ros" type="agent.py" name="agent" output="screen" args="--model_name agent">
+	</node>
+</launch>

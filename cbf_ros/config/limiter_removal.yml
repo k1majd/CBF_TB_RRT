@@ -1,0 +1,3 @@
+/omni_path_follower/base_max_linear_velocity: 1.2
+/hsrb/omni_base_controller/wheel_velocity_limit: 50.0
+/hsrb/omni_base_controller/yaw_velocity_limit: 20.0

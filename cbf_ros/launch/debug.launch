@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch cbf controller monitor (output console) -->
+	<node name="cbf_controller" pkg="cbf_ros" type="cbf_controller.py" output="screen">
+	</node>
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Launch HSR -->
+	<include file="$(find hsrb_gazebo_launch)/launch/hsrb_megaweb2015_world.launch">
+		<arg name="paused" value="false" />
+	</include>
+
+	<!-- spawn agent -->
+	<include file="$(find cbf_ros)/launch/spawn_turtlebot3.launch">
+    </include>
+
+</launch>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="robot_name" default="$(optenv ROBOT_NAME hsrb)" />
+    <include file="$(find hsrb_gazebo_launch)/launch/include/hsrb_gazebo_common.xml" pass_all_args="true" >
+        <arg name="map" value="$(find tmc_potential_maps)/maps/white_space/map.yaml" />
+        <arg name="world_name" value="$(find cbf_ros)/worlds/Tjanction_empty.world" />
+        <arg name="robot_pos" value="-x -4.0 -y -0.0 -z 0.0 -Y 0.0" />
+        <arg name="use_laser_odom" value="false" />
+    </include>
+
+   	<!-- Launch cbf controller monitor (output console)>
+	<node name="cbf_controller" pkg="cbf_ros" type="cbf_controller.py" output="screen">
+	</node-->
+
+	<!-- spawn agent -->
+	<node pkg="gazebo_ros" type="spawn_model" name="spawn_agent" args="-file $(find cbf_ros)/model_editor_models/agent/model.sdf -sdf -model agent -x 6.0 -y 1.0 -z 0.0" >
+	</node>
+	<node pkg="gazebo_ros" type="spawn_model" name="spawn_agent2" args="-file $(find cbf_ros)/model_editor_models/agent/model.sdf -sdf -model agent2 -x 6.0 -y -1.0 -z 0.0" >
+	</node>
+	<!-- agent order -->
+	<node pkg="cbf_ros" type="agent.py" name="agent_controller" args="--model_name agent">>
+	</node>
+	<node pkg="cbf_ros" type="agent.py" name="agent2_controller" args="--model_name agent2">>
+	</node>
+
+</launch>
